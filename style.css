@@ -1,0 +1,129 @@
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+.rainbow{
+  position: relative;
+}
+  .rainbow::after, .rainbow::before{
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 102%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    top: 54%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 30px;
+    margin-left: 10px;
+    animation: 3s spin linear infinite;
+  }
+  .rainbow::before{
+    filter: blur(1.5rem);
+    /* opacity: 0.5; */
+  }
+  @keyframes spin{
+    from{
+      --angle: 0deg;
+    }
+    to{
+      --angle: 360deg;
+    }
+  }
+/* *{margin: 0;
+padding: 0;} */
+  body{
+    min-height: 97vh; /* made it like this remove scroll bar on right(old just needed to add margin 0 and padding 0) (both will work)*/
+    background: radial-gradient(#2D2B7A , #1C0F35);
+    background-image: url(background.png);
+    background-size: cover;
+    font-family: Poppins;
+    color: white;
+    display: grid;
+    place-content: center;
+    text-align: center;
+  }
+  .glass-container{
+    padding: 20px;
+    /* height: 500px; */
+    height: 90vh; /* also to remove the scroll bar to the right(old was using 630px) now vh and vw (both will work)*/
+    height: 630px;
+    width: 400px;
+    /* width: 90vw;
+    max-width: 400px; */
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid #e2b1ffc4;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); 
+  }
+  nav .sidebar-active:checked ~ .sidebar{
+    display: flex;
+  }
+  nav #sidebar-active:checked ~ .sidebar{
+    display: flex;
+  }
+      form {
+          padding: 30px;
+          border-radius: 10px;
+          /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); */
+          /* width: 350px; */
+          animation: fadeIn 1s ease-in-out;
+      }
+      @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+      }
+      label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: bold;
+      }
+      input, select {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          outline: none;
+      }
+      input[type="submit"] {
+          /* background-color: #00796b; */
+          background-color: rgba(255, 255, 255, 0.856);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2) ;
+          color: black;
+          border: none;
+          cursor: pointer;
+          margin-top: 20px;
+          position: relative;
+          border-radius: 30px;
+          width: 100%;
+          margin-left: 10px;
+          
+      }
+      input[type="submit"]:hover {
+          background-color: #c5b6dfd2;
+      }
+      #city,#gender{
+        width: 106% !important;
+      }
+      @media screen and (max-width:600px) {
+        .glass-container {
+                width: 80vw;
+                padding: 15px 10px;
+            }
+            form {
+                padding: 20px;
+            }
+            input, select {
+                padding: 8px;
+            }
+            #city,#gender{
+              width: 104% !important;
+            }
+            
+        }
+      
