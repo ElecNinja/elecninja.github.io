@@ -50,7 +50,8 @@
             const city = document.getElementById("city").value;
 
             // Validate name
-            const nameParts = name.split(" ");
+            const nameParts = name.split(" ").map(part => part.toLowerCase()); 
+            // nameParts = nameParts.toLowerCase(); Only works for strings unfortunately
             let validNameParts = 0;
             for (let part of nameParts) {
                 // part = part.trim();
